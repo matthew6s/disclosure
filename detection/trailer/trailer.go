@@ -152,6 +152,22 @@ func extractCoauthorModel(tool, namePart string) string {
 	return ""
 }
 
+func getAgentName(email string) (string, bool) {
+	var name string
+	var ok bool
+
+	name, ok = detection.KnownCoAuthorEmails[email]
+	if ok {
+		return name, ok
+	}
+	name, ok = detection.KnownAgentCommitters[email]
+	if ok {
+		return name, ok
+	}
+
+	return "", false
+}
+
 func (d *Detector) detectTrailerCoauthoredBy(commitMessage string) []detection.Finding {
 	var findings []detection.Finding
 
@@ -170,7 +186,7 @@ func (d *Detector) detectTrailerCoauthoredBy(commitMessage string) []detection.F
 		email := strings.ToLower(strings.TrimSpace(match[2]))
 		score := detection.CoauthoredByTrailerBaseScore
 
-		if name, ok := detection.KnownCoAuthorEmails[email]; ok {
+		if name, ok := getAgentName(email); ok {
 			model := extractCoauthorModel(name, namePart)
 			if model != "" {
 				score += detection.CoauthorModelBonusPoints

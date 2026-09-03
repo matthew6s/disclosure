@@ -20,6 +20,7 @@ var KnownAgentCommitters = map[string]string{
 	"201248094+sourcegraph-cody[bot]@users.noreply.github.com":        "Sourcegraph Cody",
 	"220155983+jetbrains-ai[bot]@users.noreply.github.com":            "JetBrains AI",
 	"136622811+coderabbitai[bot]@users.noreply.github.com":            "CodeRabbit",
+	"175728472+copilot@users.noreply.github.com":                      "GitHub Copilot",
 }
 
 // GithubNoReplyEmailSuffix GitHub noreply emails suffix to check committer emails.
