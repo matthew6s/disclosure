@@ -7,6 +7,7 @@ var KnownAgentCommitters = map[string]string{
 	"209825114+claude[bot]@users.noreply.github.com":                  "Claude",
 	"215619710+anthropic-claude[bot]@users.noreply.github.com":        "Claude (Anthropic)",
 	"208546643+claude-code-action[bot]@users.noreply.github.com":      "Claude Code Action",
+	"175728472+copilot@users.noreply.github.com":                      "GitHub Copilot",
 	"198982749+copilot@users.noreply.github.com":                      "GitHub Copilot (agent)",
 	"167198135+copilot[bot]@users.noreply.github.com":                 "GitHub Copilot (chat)",
 	"206951365+cursor[bot]@users.noreply.github.com":                  "Cursor",
@@ -20,7 +21,6 @@ var KnownAgentCommitters = map[string]string{
 	"201248094+sourcegraph-cody[bot]@users.noreply.github.com":        "Sourcegraph Cody",
 	"220155983+jetbrains-ai[bot]@users.noreply.github.com":            "JetBrains AI",
 	"136622811+coderabbitai[bot]@users.noreply.github.com":            "CodeRabbit",
-	"175728472+copilot@users.noreply.github.com":                      "GitHub Copilot",
 }
 
 // GithubNoReplyEmailSuffix GitHub noreply emails suffix to check committer emails.
