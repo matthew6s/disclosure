@@ -130,6 +130,21 @@ func TestDetect(t *testing.T) {
 			wantConfidence: []detection.Confidence{detection.ConfidenceHigh},
 		},
 		{
+			name: "coauthor: Co-Authored-By in the wild should have high confidence",
+			message: `
+fix: remove references to "bot"
+We dropped the "bot" from our terminology long ago, but it looks like
+we've got some outdated docs + code that reference it.
+
+Co-authored-by: Claude Sonnet 5 <john.doe+claude-code@example.com>
+Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.github.com>
+`,
+			wantTools:      []string{"GitHub Copilot"},
+			wantModels:     []string{""},
+			wantScore:      []float64{75},
+			wantConfidence: []detection.Confidence{detection.ConfidenceHigh},
+		},
+		{
 			name:           "coauthor: human co-author only",
 			message:        "pair programming\n\nCo-Authored-By: Bob <bob@company.com>",
 			wantTools:      nil,
