@@ -28,9 +28,7 @@ var Version = "dev"
 
 // resolveVersion returns the CLI version to display. Release builds inject the
 // version at link time via ldflags (-X ...cmd.Version=...). When that has not
-// happened (Version is still the "dev" default) — for example a `go install
-// github.com/chaoss/disclosure@v1.2.3` build — fall back to the module version
-// recorded in the binary's build info so the reported version is accurate.
+// happened, fall back to the module version recorded in binary's build info.
 func resolveVersion() string {
 	return versionFrom(Version, readBuildVersion)
 }
