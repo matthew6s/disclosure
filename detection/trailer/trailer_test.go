@@ -145,6 +145,30 @@ Co-authored-by: Copilot Autofix powered by AI <175728472+Copilot@users.noreply.g
 			wantConfidence: []detection.Confidence{detection.ConfidenceHigh},
 		},
 		{
+			name: "coauthor: PR-Agent Pro in the wild should have high confidence",
+			message: `
+[dotnet] Don't include http headers in internal logs (#14546)
+
+* [dotnet] Don't include http headers in internal logs
+
+* Update dotnet/src/webdriver/Remote/HttpCommandExecutor.cs
+
+Co-authored-by: codiumai-pr-agent-pro[bot] <151058649+codiumai-pr-agent-pro[bot]@users.noreply.github.com>
+
+* Update dotnet/src/webdriver/Remote/HttpCommandExecutor.cs
+
+Co-authored-by: codiumai-pr-agent-pro[bot] <151058649+codiumai-pr-agent-pro[bot]@users.noreply.github.com>
+
+---------
+
+Co-authored-by: codiumai-pr-agent-pro[bot] <151058649+codiumai-pr-agent-pro[bot]@users.noreply.github.com>
+`,
+			wantTools:      []string{"PR-Agent Pro"},
+			wantModels:     []string{""},
+			wantScore:      []float64{75},
+			wantConfidence: []detection.Confidence{detection.ConfidenceHigh},
+		},
+		{
 			name:           "coauthor: human co-author only",
 			message:        "pair programming\n\nCo-Authored-By: Bob <bob@company.com>",
 			wantTools:      nil,
